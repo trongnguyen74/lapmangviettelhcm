@@ -1,24 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Routes, Route } from "react-router-dom";
+import { Navbar } from './components/Navbar';
+import { Footer } from './components/Footer';
+import { FloatContactButton } from './components/FloatContactButton';
+import { Home } from './pages/Home';
+import { InternetViettel } from './pages/InternetViettel';
+import { NetTruyenHinh } from './pages/NetTruyenHinh';
+import { HomeWifi } from './pages/HomeWifi';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar/>
+      <div className="min-h-[100vh]">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/internet-viettel" element={<InternetViettel />} />
+          <Route path="/net-truyen-hinh" element={<NetTruyenHinh />} />
+          <Route path="/home-wifi" element={<HomeWifi />} />
+        </Routes>
+      </div>
+      <FloatContactButton />
+      <Footer/>
     </div>
   );
 }
